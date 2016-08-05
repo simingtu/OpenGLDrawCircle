@@ -55,9 +55,9 @@ void DrawCircle2()
 		}
 		else
 		{
-			x = x + 1;
 			d = d + 2 * x + 3;
 		}
+		x = x + 1;
 		glVertex3f(x, y, 0);
 	}
 	glEnd();

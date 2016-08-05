@@ -38,6 +38,20 @@ void DrawCircle(int x, int y, int r)
 	glFlush();
 }
 
+// 圆的对称性，算出8个对称点
+void DrawPoints(double x0, double y0, double x, double y)
+{
+	glVertex3f(x0 + x, y0 + y, 0);
+	glVertex3f(x0 - x, y0 + y, 0);
+	glVertex3f(x0 + x, y0 - y, 0);
+	glVertex3f(x0 - x, y0 - y, 0);
+
+	glVertex3f(x0 + y, y0 + x, 0);
+	glVertex3f(x0 - y, y0 + x, 0);
+	glVertex3f(x0 + y, y0 - x, 0);
+	glVertex3f(x0 - y, y0 - x, 0);
+}
+
 //八分之一圆
 void DrawCircle2()
 {
@@ -58,7 +72,7 @@ void DrawCircle2()
 			d = d + 2 * x + 3;
 		}
 		x = x + 1;
-		glVertex3f(x, y, 0);
+		DrawPoints(0, 0, x, y);
 	}
 	glEnd();
 	glFlush();
